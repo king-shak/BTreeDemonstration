@@ -10,7 +10,6 @@ C:\Users\Shake\source\repos\BTreeDemonstration\BTreeDemonstration\obj\Debug\netc
 C:\Users\Shake\source\repos\BTreeDemonstration\BTreeDemonstration\obj\Debug\netcoreapp3.1\BTreeDemonstration.dll
 C:\Users\Shake\source\repos\BTreeDemonstration\BTreeDemonstration\obj\Debug\netcoreapp3.1\BTreeDemonstration.pdb
 C:\Users\Shake\OneDrive - Cascadia College\Files\School\Cascadia\12th Grade\Spring Quarter\Advanced Data Structures\BTreeDemonstration\BTreeDemonstration\obj\Debug\netcoreapp3.1\BTreeDemonstration.csprojAssemblyReference.cache
-C:\Users\Shake\OneDrive - Cascadia College\Files\School\Cascadia\12th Grade\Spring Quarter\Advanced Data Structures\BTreeDemonstration\BTreeDemonstration\obj\Debug\netcoreapp3.1\BTreeDemonstration.csproj.CoreCompileInputs.cache
 C:\Users\Shake\OneDrive - Cascadia College\Files\School\Cascadia\12th Grade\Spring Quarter\Advanced Data Structures\BTreeDemonstration\BTreeDemonstration\obj\Debug\netcoreapp3.1\BTreeDemonstration.AssemblyInfoInputs.cache
 C:\Users\Shake\OneDrive - Cascadia College\Files\School\Cascadia\12th Grade\Spring Quarter\Advanced Data Structures\BTreeDemonstration\BTreeDemonstration\obj\Debug\netcoreapp3.1\BTreeDemonstration.AssemblyInfo.cs
 C:\Users\Shake\OneDrive - Cascadia College\Files\School\Cascadia\12th Grade\Spring Quarter\Advanced Data Structures\BTreeDemonstration\BTreeDemonstration\obj\Debug\netcoreapp3.1\BTreeDemonstration.dll
@@ -21,4 +20,3 @@ C:\Users\Shake\OneDrive - Cascadia College\Files\School\Cascadia\12th Grade\Spri
 C:\Users\Shake\OneDrive - Cascadia College\Files\School\Cascadia\12th Grade\Spring Quarter\Advanced Data Structures\BTreeDemonstration\BTreeDemonstration\bin\Debug\netcoreapp3.1\BTreeDemonstration.runtimeconfig.dev.json
 C:\Users\Shake\OneDrive - Cascadia College\Files\School\Cascadia\12th Grade\Spring Quarter\Advanced Data Structures\BTreeDemonstration\BTreeDemonstration\bin\Debug\netcoreapp3.1\BTreeDemonstration.dll
 C:\Users\Shake\OneDrive - Cascadia College\Files\School\Cascadia\12th Grade\Spring Quarter\Advanced Data Structures\BTreeDemonstration\BTreeDemonstration\bin\Debug\netcoreapp3.1\BTreeDemonstration.pdb
-C:\Users\Shake\OneDrive - Cascadia College\Files\School\Cascadia\12th Grade\Spring Quarter\Advanced Data Structures\BTreeDemonstration\BTreeDemonstration\obj\Debug\netcoreapp3.1\BTreeDemonstration.genruntimeconfig.cache

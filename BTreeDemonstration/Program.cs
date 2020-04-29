@@ -5,9 +5,9 @@
  * Professor Mike Panitz
  * 
  * NOTE that the code for the B-Tree is simply a port and the original implementation was done
- * in C++ by Akanksha Rai and Shubham Singh over at GeeksForGeeks, and can be found here:
- * https://www.geeksforgeeks.org/insert-operation-in-b-tree/
- * Some slight modifications and fixes were made in the splitChild() method
+ * in C++ by Akanksha Rai, Shubham Singh and Balasabrmaniam Nagasundaram over at GeeksForGeeks, and can be found here:
+ * Insertion Code: https://www.geeksforgeeks.org/insert-operation-in-b-tree/
+ * Deletion Code: https://www.geeksforgeeks.org/delete-operation-in-b-tree/?ref=lbp
  */
 
 using System;
@@ -18,128 +18,140 @@ namespace BTreeDemonstration
     {
         static void Main(string[] args)
         {
-            //runTechDemo();
+            runInsertionDemo();
 
-            removeTest();
+            //runDeletionDemo();
         }
 
-        public static void runTechDemo()
+        public static void runInsertionDemo()
         {
-            Console.Write("Welcome to the technical demonstration! Press return to begin");
-            Console.ReadLine();
-
+            // Max. Degree 6 w/ Preemtive Split & Merge
             BTree myTree = new BTree(3);
-            Console.Write("\nInitialized a B-Tree with a degree of 3! Press return to populate the tree with values");
-            Console.ReadLine();
 
-            // Add values to the tree
+            // Populate the tree with values
+            // Root is null
             myTree.insert(10);
-            Console.WriteLine("\nInserted the value 10! Press return to continue");
-            Console.ReadLine();
+            Console.WriteLine("Traversal of tree after inserting 10");
+            myTree.traverse();
+            Console.WriteLine();
 
+            // Inserting into a non-full node
             myTree.insert(20);
-            Console.WriteLine("\nInserted the value 20! Press return to continue");
-            Console.ReadLine();
+            Console.WriteLine("Traversal of tree after inserting 20");
+            myTree.traverse();
+            Console.WriteLine();
 
             myTree.insert(30);
-            Console.WriteLine("\nInserted the value 30! Press return to continue");
-            Console.ReadLine();
+            Console.WriteLine("Traversal of tree after inserting 30");
+            myTree.traverse();
+            Console.WriteLine();
 
             myTree.insert(40);
-            Console.WriteLine("\nInserted the value 40! Press return to continue");
-            Console.ReadLine();
+            Console.WriteLine("Traversal of tree after inserting 40");
+            myTree.traverse();
+            Console.WriteLine();
 
             myTree.insert(50);
-            Console.WriteLine("\nInserted the value 50! Press return to continue");
-            Console.ReadLine();
+            Console.WriteLine("Traversal of tree after inserting 50");
+            myTree.traverse();
+            Console.WriteLine();
 
+            // Inserting into a full node
             myTree.insert(60);
-            Console.WriteLine("\nInserted the value 60! Press return to continue");
-            Console.ReadLine();
+            Console.WriteLine("Traversal of tree after inserting 60");
+            myTree.traverse();
+            Console.WriteLine();
 
             myTree.insert(70);
-            Console.WriteLine("\nInserted the value 70! Press return to continue");
-            Console.ReadLine();
+            Console.WriteLine("Traversal of tree after inserting 70");
+            myTree.traverse();
+            Console.WriteLine();
 
             myTree.insert(80);
-            Console.WriteLine("\nInserted the value 80! Press return to continue");
-            Console.ReadLine();
+            Console.WriteLine("Traversal of tree after inserting 80");
+            myTree.traverse();
+            Console.WriteLine();
 
+            // Split
             myTree.insert(90);
-            Console.WriteLine("\nInserted the value 90! Press return to continue");
-            Console.ReadLine();
+            Console.WriteLine("Traversal of tree after inserting 90");
+            myTree.traverse();
+            Console.WriteLine();
 
-            Console.WriteLine("\nPopulated the tree with values. Press return to perform a search for the number 40");
-            Console.ReadLine();
-
+            // Find the value 40, print the keys of the node returned
             BTreeNode result = myTree.find(40);
-
             Console.WriteLine("\nHere are the keys of the node returned:");
             result.printKeys();
-            Console.WriteLine("\nThis is the end of the demonstration");
         }
 
-        public static void removeTest()
+        public static void runDeletionDemo()
         {
-            BTree t = new BTree(3); // A B-Tree with minium degree 3 
+            // Max. Degree 6 w/ Preemtive Split & Merge
+            BTree myTree = new BTree(3);
 
-            // Populate the tree
-            t.insert(1);
-            t.insert(3);
-            t.insert(7);
-            t.insert(10);
-            t.insert(11);
-            t.insert(13);
-            t.insert(14);
-            t.insert(15);
-            t.insert(18);
-            t.insert(16);
-            t.insert(19);
-            t.insert(24);
-            t.insert(25);
-            t.insert(26);
-            t.insert(21);
-            t.insert(4);
-            t.insert(5);
-            t.insert(20);
-            t.insert(22);
-            t.insert(2);
-            t.insert(17);
-            t.insert(12);
-            t.insert(6);
+            // Populate the tree with values
+            myTree.insert(1);
+            myTree.insert(3);
+            myTree.insert(7);
+            myTree.insert(10);
+            myTree.insert(11);
+            myTree.insert(13);
+            myTree.insert(14);
+            myTree.insert(15);
+            myTree.insert(18);
+            myTree.insert(16);
+            myTree.insert(19);
+            myTree.insert(24);
+            myTree.insert(25);
+            myTree.insert(26);
+            myTree.insert(21);
+            myTree.insert(4);
+            myTree.insert(5);
+            myTree.insert(20);
+            myTree.insert(22);
+            myTree.insert(2);
+            myTree.insert(17);
+            myTree.insert(12);
+            myTree.insert(6);
 
+            // Traverse the newly constructed tree before the deletion process
             Console.WriteLine("Traversal of tree constructed is");
-            t.traverse();
+            myTree.traverse();
             Console.WriteLine();
 
-            t.remove(6);
+            // Begin Deletion Process
+            myTree.remove(6);
             Console.WriteLine("Traversal of tree after removing 6");
-            t.traverse();
+            myTree.traverse();
             Console.WriteLine();
 
-            t.remove(13);
+            myTree.remove(13);
             Console.WriteLine("Traversal of tree after removing 13");
-            t.traverse();
+            myTree.traverse();
             Console.WriteLine();
 
-            t.remove(7);
+            // Case 2C
+            myTree.remove(7);
             Console.WriteLine("Traversal of tree after removing 7");
-            t.traverse();
+            myTree.traverse();
             Console.WriteLine();
 
-            t.remove(4);
+            // Case 3B (Pre-emptive merge), then case 1A
+            myTree.remove(4);
             Console.WriteLine("Traversal of tree after removing 4");
-            t.traverse();
+            myTree.traverse();
             Console.WriteLine();
 
-            t.remove(2);
+            // Case 1C
+            myTree.remove(2);
             Console.WriteLine("Traversal of tree after removing 2");
-            t.traverse();
+            myTree.traverse();
             Console.WriteLine();
 
-            t.remove(16);
+            // Deleting a key within the root node
+            myTree.remove(16);
             Console.WriteLine("Traversal of tree after removing 16");
-            t.traverse();
+            myTree.traverse();
             Console.WriteLine();
         }
     }
@@ -176,7 +188,6 @@ namespace BTreeDemonstration
             // If this is a leaf node 
             if (leaf == true)
             {
-                Console.WriteLine("\nCurrently on a leaf node, finding a location for the new key and making space...");
                 // The following loop does two things 
                 // a) Finds the location of new key to be inserted 
                 // b) Moves all greater keys to one place ahead 
@@ -186,35 +197,28 @@ namespace BTreeDemonstration
                     i--;
                 }
 
-                Console.WriteLine("Inserting the new key!");
                 // Insert the new key at found location 
                 keys[i + 1] = key;
                 numOfKeys = numOfKeys + 1;
             }
             else // If this node is not leaf 
             {
-                Console.WriteLine("\nNot on a leaf node. Finding the next appropiate child...");
                 // Find the child which is going to have the new key 
                 while (i >= 0 && keys[i] > key)
                     i--;
-                Console.WriteLine("The next appropiate child is at index {0}", i + 1);
 
                 // See if the found child is full 
                 if (children[i + 1].numOfKeys == 2 * t - 1)
                 {
-                    Console.WriteLine("The found child is full, so we'll split it");
                     // If the child is full, then split it 
                     splitChild(i + 1, children[i + 1]);
 
                     // After split, the middle key of C[i] goes up and 
                     // C[i] is splitted into two. See which of the two 
                     // is going to have the new key 
-                    Console.WriteLine("Determining which of the two nodes created from the split should be traversed next");
                     if (keys[i + 1] < key)
                         i++;
-                    Console.WriteLine("The chosen node is at index {0}", i + 1);
                 }
-                Console.WriteLine("Calling insertNonFull() on the chosen child...");
                 children[i + 1].insertNonFull(key);
             }
         }
@@ -223,7 +227,6 @@ namespace BTreeDemonstration
         // children[]. The child y must be full when this function is called.
         public void splitChild(int i, BTreeNode y)
         {
-            Console.WriteLine("\nBeginning the splitting procedure...");
             // Create a new node which is going to store (t-1) keys 
             // of y 
             BTreeNode z = new BTreeNode(y.t, y.leaf);
@@ -233,11 +236,7 @@ namespace BTreeDemonstration
             for (int j = 0; j < t - 1; j++)
             {
                 z.keys[j] = y.keys[j + t];
-                // Clear that key from y
-                y.keys[j + t] = 0;
             }
-
-            Console.WriteLine("Created new node z, copied the last {0} keys of y into it, and updated numOfKeys within z", t - 1);
 
             // Copy the last t children of y to z 
             if (y.leaf == false)
@@ -246,12 +245,10 @@ namespace BTreeDemonstration
                 {
                     z.children[j] = y.children[j + t];
                 }
-                Console.WriteLine("Copied the last {0} children of y to z", t);
             }
 
             // Reduce the number of keys in y 
             y.numOfKeys = t - 1;
-            Console.WriteLine("Updated the number of keys in y");
 
             // Since this node is going to have a new child, 
             // create space of new child 
@@ -259,11 +256,9 @@ namespace BTreeDemonstration
             {
                 children[j + 1] = children[j];
             }
-            Console.WriteLine("Created space for z in s (the parent node)");
 
             // Link the new child to this node 
             children[i + 1] = z;
-            Console.WriteLine("Linked z to s");
 
             // A key of y will move to this node. Find the location of 
             // new key and move all greater keys one space ahead 
@@ -272,12 +267,9 @@ namespace BTreeDemonstration
 
             // Copy the middle key of y to this node 
             keys[i] = y.keys[t - 1];
-            // Clear the middle key from y
-            y.keys[t - 1] = 0;
 
             // Increment count of keys in this node 
             numOfKeys = numOfKeys + 1;
-            Console.WriteLine("Moved the middle key of y to s and updated numOfKeys");
         }
 
         // A wrapper function to remove the key k in subtree rooted with 
@@ -606,32 +598,25 @@ namespace BTreeDemonstration
         public BTreeNode find(int key)
         {
             // Find the first key greater than or equal to k
-            Console.WriteLine("\nLooking for the first key greater than or eqaul to the target...");
             int i = 0;
             while (i < numOfKeys && key > keys[i])
             {
                 i++;
             }
-            Console.WriteLine("The found key is {0}", keys[i]);
 
             // If the found key is equal to the target, return this node
             if (keys[i] == key)
             {
-                Console.WriteLine("The found key matches the target! We will now return this node");
                 return this;
             }
 
             // If key is not found here and this is a leaf node
             if (leaf == true)
             {
-                Console.WriteLine("The found key does not match the target, and we are in a leaf node. This means the target does not exist in the tree");
                 // Because if this is a leaf node that means there are no more children to search
                 return null;
             }
 
-            Console.WriteLine("The next appropiate child is child {0} of the current node", i + 1);
-            Console.WriteLine("Calling find() on the next appropiate child. Hit return to continue");
-            Console.ReadLine();
             // Go to the appropiate child
             return children[i].find(key);
         }
@@ -681,15 +666,12 @@ namespace BTreeDemonstration
 
         public BTreeNode find(int key)
         {
-            Console.WriteLine("In BTree:find()!");
             if (root == null)
             {
-                Console.WriteLine("There is no tree (root is null), so we'll return");
                 return null;
             }
             else
             {
-                Console.WriteLine("Calling find() on the root node");
                 return root.find(key);
             }
         }
@@ -699,19 +681,16 @@ namespace BTreeDemonstration
             // If tree is empty 
             if (root == null)
             {
-                Console.WriteLine("\nRoot is null! Allocating space for root!");
                 // Allocate memory for root 
                 root = new BTreeNode(t, true);
                 root.keys[0] = key; // Insert key 
                 root.numOfKeys = 1; // Update number of keys in root
-                Console.WriteLine("Initialized root! Returning now...");
             }
             else // If tree is not empty 
             {
                 // If root is full, then tree grows in height 
                 if (root.numOfKeys == 2 * t - 1)
                 {
-                    Console.WriteLine("\nRoot is full! Creating a new root node!");
                     // Allocate memory for new root 
                     BTreeNode s = new BTreeNode(t, false);
 
@@ -719,27 +698,22 @@ namespace BTreeDemonstration
                     s.children[0] = root;
 
                     // Split the old root and move 1 key to the new root
-                    Console.WriteLine("Splitting old root node!");
                     s.splitChild(0, root);
 
                     // New root has two children now. Decide which of the 
                     // two children is going to have new key
-                    Console.WriteLine("\nFinding the correct child to place the new key...");
                     int i = 0;
                     if (s.keys[0] < key)
                     {
                         i++;
                     }
-                    Console.WriteLine("Calling insertNonFull() on the child at index {0} of the new root node", i);
                     s.children[i].insertNonFull(key);
 
                     // Change root
-                    Console.WriteLine("Updating root reference!");
                     root = s;
                 }
                 else // If root is not full, call insertNonFull for root 
                 {
-                    Console.WriteLine("\nRoot is not full, calling insertNonFull() on root");
                     root.insertNonFull(key);
                 }
             }
