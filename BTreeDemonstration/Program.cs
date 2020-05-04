@@ -564,10 +564,6 @@ namespace BTreeDemonstration
             // Updating the key count of child and the current node 
             child.numOfKeys += sibling.numOfKeys + 1;
             numOfKeys--;
-
-            // Freeing the memory occupied by sibling 
-            //delete(sibling);
-            //return;
         }
 
         // This will traverse all the nodes in a subtree rooted within this node
@@ -743,10 +739,6 @@ namespace BTreeDemonstration
                 {
                     root = root.children[0];
                 }
-
-                // Probably don't need this...will keep just in case
-                // Free the old root 
-                //delete tmp;
             }
         }
     }
